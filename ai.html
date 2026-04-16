@@ -18,6 +18,7 @@
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="team.html">Team</a>
+      <a href="flow.html">Flow</a>
       <a href="ai.html" class="active">AI Research</a>
       <a href="strategies.html">Strategies</a>
     </div>
@@ -30,7 +31,7 @@
 <section class="page-hero">
   <div class="container">
     <h1 class="page-title">Stacked Ensemble</h1>
-    <p class="page-desc">A multi-agent AI system that writes, tests, and iterates trading strategies — learning from every failure to improve the next generation</p>
+    <p class="page-desc">A multi-agent AI system that writes, tests, and iterates trading strategies, learning from every failure to improve the next generation</p>
   </div>
 </section>
 
@@ -40,7 +41,7 @@
     <div class="section-header">
       <h2 class="section-label">Research Pipeline</h2>
       <h3 class="section-title">How It Works</h3>
-      <p class="section-desc">Multiple specialized AI agents collaborate through a structured pipeline. Each agent has a specific role — generation, validation, analysis, or research — and they build on each other's output.</p>
+      <p class="section-desc">Multiple specialized AI agents collaborate through a structured pipeline. Each agent has a specific role (generation, validation, analysis, or research) and they build on each other's output.</p>
     </div>
 
     <div class="architecture reveal">
@@ -48,7 +49,7 @@
         <div class="arch-node arch-agent">
           <div class="arch-icon">&#x1f916;</div>
           <h4>Strategy Agent</h4>
-          <p>Writes full backtest code for a given strategy archetype. Reviews its own code against 20 known bias patterns before running. Iterates up to 3 rounds, narrowing parameters each time.</p>
+          <p>Writes full backtest code for a given strategy archetype. Reviews its own code against 23 known bias patterns before running. Iterates up to 3 rounds, narrowing parameters each time.</p>
         </div>
         <div class="arch-arrow">&rarr;</div>
         <div class="arch-node arch-optimize">
@@ -75,26 +76,12 @@
           <div class="arch-node arch-graveyard">
             <div class="arch-icon">&#x26b0;</div>
             <h4>Post-Mortem &amp; Research</h4>
-            <p>Failed strategies are analyzed by a post-mortem agent that identifies root causes — flawed signal logic, poor parameter ranges, or regime mismatch. A research agent reads all failure analyses and generates novel strategy ideas that avoid known pitfalls.</p>
+            <p>Failed strategies are analyzed by a post-mortem agent that identifies root causes: flawed signal logic, poor parameter ranges, or regime mismatch. A research agent reads all failure analyses and generates novel strategy ideas that avoid known pitfalls.</p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="pipeline-stats reveal">
-      <div class="pipeline-stat">
-        <div class="pipeline-stat-value" id="stat-attempted">25</div>
-        <div class="pipeline-stat-label">Tested</div>
-      </div>
-      <div class="pipeline-stat">
-        <div class="pipeline-stat-value" id="stat-passed">14</div>
-        <div class="pipeline-stat-label">Passed</div>
-      </div>
-      <div class="pipeline-stat">
-        <div class="pipeline-stat-value" id="stat-graveyard">11</div>
-        <div class="pipeline-stat-label">Failed</div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -110,29 +97,151 @@
     <div class="agent-grid reveal">
       <div class="agent-card">
         <h4>Strategy Agent</h4>
-        <p>Receives an archetype (e.g. "mean reversion using RSI") and writes a complete optimizer from scratch. Self-reviews against 20 documented bias patterns before execution. Runs up to 3 rounds — each round narrows parameter ranges around the best results from the previous.</p>
+        <p>Receives an archetype (e.g. "mean reversion using RSI") and writes a complete optimizer from scratch. Self-reviews against 23 documented bias patterns before execution. Runs up to 3 rounds, with each round narrowing parameter ranges around the best results from the previous.</p>
       </div>
       <div class="agent-card">
         <h4>Research Agent</h4>
-        <p>Activated when built-in archetypes are exhausted. Reads every passed strategy, every failure post-mortem, and the aggregated failure statistics. Generates 10 novel strategy ideas that specifically avoid known failure patterns and target gaps in the current portfolio.</p>
+        <p>Activated when built-in archetypes are exhausted. Reads every passed strategy, every failure post-mortem, and the aggregated failure statistics. Generates 10 novel strategy ideas per round that specifically avoid known failure patterns and target gaps in the current portfolio. Each idea includes explicit differentiation from previously attempted strategies.</p>
       </div>
       <div class="agent-card">
         <h4>Post-Mortem Agent</h4>
-        <p>Analyzes each failed strategy in depth — was the signal logic flawed? Were parameter ranges too narrow? Did the exit rules cause problems? Writes a root cause analysis that feeds directly into the research agent's next round of ideas.</p>
+        <p>Analyzes each failed strategy in depth. Was the signal logic flawed? Were parameter ranges too narrow? Did the exit rules cause problems? Identifies near-misses (strategies that failed on a single metric) and quantifies how far each metric fell from the threshold. Writes a root cause analysis that feeds directly into the research agent's next round of ideas.</p>
       </div>
       <div class="agent-card">
         <h4>Alignment Agent</h4>
-        <p>Verifies that the live trading engine produces identical results to the optimizer. If there's a mismatch (common due to execution timing), a specialized debugging agent traces and fixes the discrepancy.</p>
+        <p>Verifies that the live trading engine produces identical results to the optimizer by comparing trade count, P&amp;L, and drawdown within tight tolerances. If there's a mismatch (common due to execution timing differences), a specialized debugging agent traces and fixes the discrepancy.</p>
+      </div>
+      <div class="agent-card">
+        <h4>Ensemble Agent</h4>
+        <p>Combines multiple passed strategies into a single portfolio using a shared-capital simulation model. Optimizes member weights through iterative hill climbing across hundreds of configurations. Penalizes correlated strategies and enforces diversification constraints to ensure the ensemble is more resilient than any individual member.</p>
+      </div>
+      <div class="agent-card">
+        <h4>Hedge Agent</h4>
+        <p>Creates an all-weather defensive allocation layer that sits underneath the strategy portfolio. Uses regime-based asset allocation to shift capital between growth and defensive positions depending on market conditions. Targets near-continuous time-in-market to avoid cash drag while maintaining protection during drawdowns.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bias Review -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-label">Code Integrity</h2>
+      <h3 class="section-title">Bias Review Framework</h3>
+      <p class="section-desc">Every strategy is reviewed against 23 documented bias patterns before it can run. These patterns are categorized into four classes, each targeting a different way backtests can produce misleading results.</p>
+    </div>
+
+    <div class="bias-grid reveal">
+      <div class="bias-card bias-card-execution">
+        <div class="bias-card-header">
+          <h4>Execution Model</h4>
+          <span class="bias-count">5 checks</span>
+        </div>
+        <p>Biases in how trades are filled. Incorrect entry/exit timing, same-day re-entry lookahead, and fill bar assumptions that would not hold in live trading.</p>
+      </div>
+      <div class="bias-card bias-card-metrics">
+        <div class="bias-card-header">
+          <h4>Metrics Calculation</h4>
+          <span class="bias-count">3 checks</span>
+        </div>
+        <p>Errors in how performance is measured. Drawdown tracked only at trade close instead of every bar, missing commission deductions, and win rate miscounting flat days.</p>
+      </div>
+      <div class="bias-card bias-card-lookahead">
+        <div class="bias-card-header">
+          <h4>Lookahead &amp; Data</h4>
+          <span class="bias-count">8 checks</span>
+        </div>
+        <p>Using future information that would not be available at decision time. Accessing next-bar indicator values, using close prices at market open, leveraged ETF split history, and data source mismatches between optimizer and engine.</p>
+      </div>
+      <div class="bias-card bias-card-alignment">
+        <div class="bias-card-header">
+          <h4>Alignment</h4>
+          <span class="bias-count">7 checks</span>
+        </div>
+        <p>Divergence between the optimizer and the live engine. Shared-capital vs return-weighted model differences, cross-symbol accounting errors, and execution model mismatches that cause results to drift over time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quality Gate -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-label">Selection Criteria</h2>
+      <h3 class="section-title">Quality Gate</h3>
+      <p class="section-desc">Every strategy must pass a battery of statistical and risk-adjusted tests simultaneously. Failing a single metric sends the strategy to post-mortem analysis. Thresholds tighten at the ensemble level.</p>
+    </div>
+
+    <div class="gate-metrics reveal">
+      <div class="gate-metric">
+        <span class="gate-metric-name">Growth</span>
+        <span class="gate-metric-desc">Minimum annualized return threshold</span>
+      </div>
+      <div class="gate-metric">
+        <span class="gate-metric-name">Downside Risk</span>
+        <span class="gate-metric-desc">Maximum allowable peak-to-trough loss</span>
+      </div>
+      <div class="gate-metric">
+        <span class="gate-metric-name">Statistical Significance</span>
+        <span class="gate-metric-desc">Returns must be distinguishable from random chance</span>
+      </div>
+      <div class="gate-metric">
+        <span class="gate-metric-name">Risk-Adjusted Return</span>
+        <span class="gate-metric-desc">Performance measured relative to volatility and drawdown</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pipeline Robustness -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-label">Infrastructure</h2>
+      <h3 class="section-title">Pipeline Robustness</h3>
+      <p class="section-desc">The pipeline is designed to run unattended for days. Built-in recovery mechanisms handle failures at every level.</p>
+    </div>
+
+    <div class="robustness-grid reveal">
+      <div class="robustness-item">
+        <div class="robustness-icon">&#x1F504;</div>
+        <div class="robustness-content">
+          <h4>Crash Recovery</h4>
+          <p>Corrupted JSON files are auto-repaired, stale entries are recovered, and lock files are cleaned on startup. Failed agents auto-restart up to 3 times before escalating.</p>
+        </div>
+      </div>
+      <div class="robustness-item">
+        <div class="robustness-icon">&#x1F4BE;</div>
+        <div class="robustness-content">
+          <h4>Checkpointing</h4>
+          <p>Long optimization runs (30,000+ configurations) checkpoint progress periodically. If a run is interrupted, it resumes from the last checkpoint rather than starting over.</p>
+        </div>
+      </div>
+      <div class="robustness-item">
+        <div class="robustness-icon">&#x23F1;</div>
+        <div class="robustness-content">
+          <h4>Concurrency &amp; Timeouts</h4>
+          <p>Multiple strategy agents run in parallel with configurable concurrency limits. Each agent has a 2-hour timeout to prevent runaway processes from blocking the pipeline.</p>
+        </div>
+      </div>
+      <div class="robustness-item">
+        <div class="robustness-icon">&#x1F50D;</div>
+        <div class="robustness-content">
+          <h4>Monitoring Loop</h4>
+          <p>A master orchestrator continuously monitors all active agents and layers. When enough strategies pass, it automatically triggers ensemble construction.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Strategy Examples -->
-<section class="section">
+<section class="section section-dark">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-label">Layer 1 Results</h2>
+      <h2 class="section-label">Discovery Results</h2>
       <h3 class="section-title">Example Strategies</h3>
       <p class="section-desc">Individual strategy performance from our autonomous discovery pipeline</p>
     </div>
@@ -157,12 +266,12 @@
 </section>
 
 <!-- Natural Selection -->
-<section class="section section-dark">
+<section class="section">
   <div class="container">
     <div class="section-header">
       <h2 class="section-label">Evolutionary Process</h2>
       <h3 class="section-title">Natural Selection</h3>
-      <p class="section-desc">Strategies that fail the quality gate are demoted for post-mortem analysis</p>
+      <p class="section-desc">Strategies that fail the quality gate are demoted for post-mortem analysis. The pipeline runs continuously, with each round producing new candidates.</p>
     </div>
 
     <div class="funnel reveal">
@@ -170,7 +279,7 @@
         <div class="funnel-bar"><div class="funnel-fill" style="width:100%"></div></div>
         <div class="funnel-info">
           <span class="funnel-value" id="funnel-total">25</span>
-          <span class="funnel-label">Strategies Attempted</span>
+          <span class="funnel-label">Strategies Attempted So Far</span>
         </div>
       </div>
       <div class="funnel-step funnel-passed">

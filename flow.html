@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edge | Alantrax</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<nav id="main-nav" class="scrolled">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">ALANTRAX</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="team.html">Team</a>
+      <a href="flow.html" class="active">Flow</a>
+      <a href="ai.html">AI Research</a>
+      <a href="strategies.html">Strategies</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <h1 class="page-title">Institutional Flow Tracking</h1>
+    <p class="page-desc">Reading the derivatives market to detect institutional intent before it reaches price</p>
+  </div>
+</section>
+
+<!-- Flow Introduction -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-label">Proprietary Signal System</h2>
+      <h3 class="section-title">What is Flow?</h3>
+      <p class="section-desc">Flow is our proprietary metric framework that quantifies institutional hedging activity in the derivatives market. It transforms raw market data into four distinct signals that measure the level, speed, depth, and acceleration of institutional positioning.</p>
+    </div>
+
+    <div class="thesis-callout reveal">
+      <p>Institutional traders operating at scale are forced to hedge through derivatives. These purchases leave a measurable footprint. Flow captures that footprint across four dimensions, giving us a real-time view of what large players are doing before it shows up in price.</p>
+    </div>
+  </div>
+</section>
+
+<!-- The Thesis -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-label">Core Thesis</h2>
+      <h3 class="section-title">Why Large Traders Leave Traces</h3>
+      <p class="section-desc">Institutions managing billions cannot move in and out of positions quickly without moving the market against themselves. They are forced to hedge through derivatives, and those purchases are recorded.</p>
+    </div>
+
+    <div class="thesis-flow reveal">
+      <div class="thesis-step">
+        <div class="thesis-icon thesis-icon-blue">&#x1F3E6;</div>
+        <h4>Institutional Decision</h4>
+        <p>A fund decides to accumulate or reduce a large position. The size is too large to execute at once without adverse price impact.</p>
+      </div>
+      <div class="thesis-arrow">&rarr;</div>
+      <div class="thesis-step">
+        <div class="thesis-icon thesis-icon-purple">&#x1F6E1;</div>
+        <h4>Derivatives Hedging</h4>
+        <p>To manage risk during execution, they buy options and volatility products. These insurance purchases are a necessary cost of operating at scale.</p>
+      </div>
+      <div class="thesis-arrow">&rarr;</div>
+      <div class="thesis-step">
+        <div class="thesis-icon thesis-icon-orange">&#x1F4C8;</div>
+        <h4>Volatility Footprint</h4>
+        <p>Aggregate hedging demand pushes up implied volatility. Public volatility indices record this activity in real time, creating an observable signal.</p>
+      </div>
+      <div class="thesis-arrow">&rarr;</div>
+      <div class="thesis-step">
+        <div class="thesis-icon thesis-icon-cyan">&#x1F50D;</div>
+        <h4>Signal Detection</h4>
+        <p>Our proprietary metrics transform raw volatility data into actionable signals that reveal institutional positioning before it reaches price.</p>
+      </div>
+    </div>
+
+    <div class="thesis-callout reveal">
+      <p>Most market participants watch price to understand what happened. We watch derivatives to understand what is <em>about</em> to happen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- The Signals -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-label">Proprietary Metrics</h2>
+      <h3 class="section-title">Four Dimensions of Flow</h3>
+      <p class="section-desc">Each metric captures a different aspect of institutional behavior. Used together, they form a multi-dimensional view of market intent.</p>
+    </div>
+
+    <div class="signal-grid reveal">
+      <div class="signal-card signal-card-level">
+        <div class="signal-header">
+          <div class="signal-badge signal-badge-blue">Level</div>
+          <h4>Flow Index</h4>
+        </div>
+        <p class="signal-subtitle">Aggregate Hedging Pressure</p>
+        <p class="signal-desc">Measures the aggregate cost of portfolio insurance across the derivatives market. A high reading means institutions are paying a premium to hedge because they expect turbulence. A low reading means complacency, with little demand for protection.</p>
+        <div class="signal-reads">
+          <div class="signal-read">
+            <span class="signal-read-label">High reading</span>
+            <span class="signal-read-value signal-read-fear">Fear / active hedging</span>
+          </div>
+          <div class="signal-read">
+            <span class="signal-read-label">Low reading</span>
+            <span class="signal-read-value signal-read-calm">Complacency / no protection</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="signal-card signal-card-delta">
+        <div class="signal-header">
+          <div class="signal-badge signal-badge-purple">Momentum</div>
+          <h4>Flow Momentum</h4>
+        </div>
+        <p class="signal-subtitle">Rate of Change in Hedging</p>
+        <p class="signal-desc">Captures the speed at which institutions are buying protection. A sharp increase means sudden demand for hedging, often triggered by new information or a large player entering the market.</p>
+        <div class="signal-reads">
+          <div class="signal-read">
+            <span class="signal-read-label">Rapid increase</span>
+            <span class="signal-read-value signal-read-fear">Panic buying of protection</span>
+          </div>
+          <div class="signal-read">
+            <span class="signal-read-label">Rapid decrease</span>
+            <span class="signal-read-value signal-read-calm">Fear subsiding, hedges unwinding</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="signal-card signal-card-vvix">
+        <div class="signal-header">
+          <div class="signal-badge signal-badge-orange">Meta-Level</div>
+          <h4>Flow Depth</h4>
+        </div>
+        <p class="signal-subtitle">Second-Order Hedging Signal</p>
+        <p class="signal-desc">When institutions hedge their hedges, this metric rises. It captures extreme uncertainty, revealing moments when even the volatility market itself is unstable and indicating deep institutional stress.</p>
+        <div class="signal-reads">
+          <div class="signal-read">
+            <span class="signal-read-label">Elevated</span>
+            <span class="signal-read-value signal-read-fear">Hedging demand on the hedges</span>
+          </div>
+          <div class="signal-read">
+            <span class="signal-read-label">Stable</span>
+            <span class="signal-read-value signal-read-calm">Orderly volatility markets</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="signal-card signal-card-vvix-delta">
+        <div class="signal-header">
+          <div class="signal-badge signal-badge-cyan">Acceleration</div>
+          <h4>Flow Acceleration</h4>
+        </div>
+        <p class="signal-subtitle">Rate of Change in Flow Depth</p>
+        <p class="signal-desc">The acceleration of hedging activity. A spike signals a sudden escalation in institutional stress, often serving as the earliest warning of a regime shift before the primary Flow Index fully reacts.</p>
+        <div class="signal-reads">
+          <div class="signal-read">
+            <span class="signal-read-label">Spiking</span>
+            <span class="signal-read-value signal-read-fear">Regime shift underway</span>
+          </div>
+          <div class="signal-read">
+            <span class="signal-read-label">Stable</span>
+            <span class="signal-read-value signal-read-calm">No change in hedging behavior</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Signal Applications -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-label">Strategy Applications</h2>
+      <h3 class="section-title">How We Trade On It</h3>
+      <p class="section-desc">The same core metrics power fundamentally different strategy types. Each application extracts a different edge from institutional flow data.</p>
+    </div>
+
+    <div class="application-grid reveal">
+      <div class="application-card">
+        <div class="application-icon-wrap application-icon-green">
+          <span class="application-icon">&#x2699;</span>
+        </div>
+        <div class="application-content">
+          <h4>Regime Detection</h4>
+          <p>Flow Index and Flow Momentum are combined into an effective score, amplified by Flow Depth during extreme conditions. This composite signal classifies the market into distinct regimes, each triggering a different portfolio allocation between growth and defensive assets.</p>
+          <div class="application-signals">
+            <span class="signal-tag">Flow Index</span>
+            <span class="signal-tag">Flow Momentum</span>
+            <span class="signal-tag">Flow Depth</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="application-card">
+        <div class="application-icon-wrap application-icon-red">
+          <span class="application-icon">&#x26A1;</span>
+        </div>
+        <div class="application-content">
+          <h4>Fear Spike Capture</h4>
+          <p>When Flow Momentum surges rapidly over a short lookback, institutional hedging is peaking. These moments of maximum fear historically precede sharp reversals. Multiple strategies are built to detect and trade these spikes from different angles.</p>
+          <div class="application-signals">
+            <span class="signal-tag">Flow Momentum</span>
+            <span class="signal-tag">Flow Index</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="application-card">
+        <div class="application-icon-wrap application-icon-blue">
+          <span class="application-icon">&#x1F4C9;</span>
+        </div>
+        <div class="application-content">
+          <h4>Contraction Recovery</h4>
+          <p>After a spike, the Flow Index contracting from its recent high signals that hedging demand is subsiding and institutional selling pressure is easing. Strategies detect meaningful drops from rolling peaks to enter recovery positions ahead of broader market recognition.</p>
+          <div class="application-signals">
+            <span class="signal-tag">Flow Momentum</span>
+            <span class="signal-tag">Flow Index</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="application-card">
+        <div class="application-icon-wrap application-icon-purple">
+          <span class="application-icon">&#x1F4CA;</span>
+        </div>
+        <div class="application-content">
+          <h4>Volatility-Scaled Exposure</h4>
+          <p>Position sizes are adjusted inversely to the current Flow Index level. When institutional hedging is heavy, exposure is automatically reduced. In calm markets with low hedging demand, the system stays fully invested. This creates a natural risk-off mechanism driven by institutional behavior rather than arbitrary rules.</p>
+          <div class="application-signals">
+            <span class="signal-tag">Flow Index</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why It Works -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-label">Structural Advantage</h2>
+      <h3 class="section-title">Why This Edge Persists</h3>
+    </div>
+
+    <div class="edge-grid reveal">
+      <div class="edge-card">
+        <div class="edge-icon">&#x1F4A1;</div>
+        <h4>Intent Over Price</h4>
+        <p>Price tells you what happened. Derivatives tell you what institutions <em>expect</em> to happen. By reading hedging flows, we access forward-looking information that price-based analysis misses entirely.</p>
+      </div>
+      <div class="edge-card">
+        <div class="edge-icon">&#x1F30A;</div>
+        <h4>Unavoidable Footprint</h4>
+        <p>Large players cannot hide in the derivatives market. The volume required to hedge billions in positions inevitably moves implied volatility. This structural constraint makes the signal persistent and reliable across market regimes.</p>
+      </div>
+      <div class="edge-card">
+        <div class="edge-icon">&#x1F9E9;</div>
+        <h4>Compounding Signals</h4>
+        <p>A single reading is a data point. The combination of level, rate of change, and second-order effects creates a multi-dimensional view of institutional behavior that is exponentially harder to extract than any one signal alone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">ALANTRAX</span>
+        <p class="footer-tagline">AI-Driven Quantitative Research</p>
+      </div>
+      <div class="footer-disclaimer">
+        <p>Backtested results. Past performance is not indicative of future results. This is not financial advice or a solicitation to invest.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

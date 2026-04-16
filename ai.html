@@ -30,7 +30,7 @@
 <section class="page-hero">
   <div class="container">
     <h1 class="page-title">Stacked Ensemble</h1>
-    <p class="page-desc">AI-driven autonomous strategy discovery using regression analysis to identify common market patterns</p>
+    <p class="page-desc">A multi-agent AI system that writes, tests, and iterates trading strategies — learning from every failure to improve the next generation</p>
   </div>
 </section>
 
@@ -40,33 +40,33 @@
     <div class="section-header">
       <h2 class="section-label">Research Pipeline</h2>
       <h3 class="section-title">How It Works</h3>
-      <p class="section-desc">The system uses regression analysis to find common strategies across different market regimes, then ensembles the best performers into a unified portfolio</p>
+      <p class="section-desc">Multiple specialized AI agents collaborate through a structured pipeline. Each agent has a specific role — generation, validation, analysis, or research — and they build on each other's output.</p>
     </div>
 
     <div class="architecture reveal">
       <div class="arch-flow">
         <div class="arch-node arch-agent">
           <div class="arch-icon">&#x1f916;</div>
-          <h4>LLM Agent</h4>
-          <p>Autonomous code generation from a library of archetype templates covering mean reversion, momentum, volatility, and pattern-based approaches</p>
+          <h4>Strategy Agent</h4>
+          <p>Writes full backtest code for a given strategy archetype. Reviews its own code against 20 known bias patterns before running. Iterates up to 3 rounds, narrowing parameters each time.</p>
         </div>
         <div class="arch-arrow">&rarr;</div>
         <div class="arch-node arch-optimize">
           <div class="arch-icon">&#x2699;</div>
-          <h4>Regression & Optimization</h4>
-          <p>Each strategy is backtested across 30,000+ parameter configurations to find optimal risk-reward profiles while guarding against overfitting</p>
+          <h4>Optimization</h4>
+          <p>Tests 30,000+ parameter configurations per strategy. Ranks by risk-adjusted returns. Checkpoints progress so long runs can resume if interrupted.</p>
         </div>
         <div class="arch-arrow">&rarr;</div>
         <div class="arch-node arch-gate">
           <div class="arch-icon">&#x2714;</div>
-          <h4>Quality Gate</h4>
-          <p>Multi-metric statistical filter ensuring strategies demonstrate robust risk-adjusted returns, statistical significance, and sufficient trade frequency</p>
+          <h4>Validation</h4>
+          <p>Best config is rebuilt as a live-ready trading engine. An alignment check verifies the engine matches the optimizer's results within tight tolerances. A separate agent debugs any mismatches.</p>
         </div>
         <div class="arch-arrow">&rarr;</div>
         <div class="arch-node arch-ensemble">
           <div class="arch-icon">&#x1f4ca;</div>
           <h4>Ensemble</h4>
-          <p>Surviving strategies are combined into a diversified portfolio using correlation-aware weight optimization to maximize risk-adjusted performance</p>
+          <p>Passing strategies are combined into a portfolio. An ensemble agent optimizes weights across members, penalizing correlated strategies to maximize diversification.</p>
         </div>
       </div>
       <div class="arch-feedback">
@@ -74,8 +74,8 @@
         <div class="arch-feedback-label">
           <div class="arch-node arch-graveyard">
             <div class="arch-icon">&#x26b0;</div>
-            <h4>Post-Mortem Analysis</h4>
-            <p>Failed strategies are systematically analyzed for common bias patterns and failure modes. Insights are fed back to improve the next generation of candidates.</p>
+            <h4>Post-Mortem &amp; Research</h4>
+            <p>Failed strategies are analyzed by a post-mortem agent that identifies root causes — flawed signal logic, poor parameter ranges, or regime mismatch. A research agent reads all failure analyses and generates novel strategy ideas that avoid known pitfalls.</p>
           </div>
         </div>
       </div>
@@ -93,6 +93,36 @@
       <div class="pipeline-stat">
         <div class="pipeline-stat-value" id="stat-graveyard">11</div>
         <div class="pipeline-stat-label">Failed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Agent Detail -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-label">Multi-Agent System</h2>
+      <h3 class="section-title">Specialized Agents</h3>
+      <p class="section-desc">Each stage of the pipeline is handled by a purpose-built AI agent with specific instructions and access to prior results</p>
+    </div>
+
+    <div class="agent-grid reveal">
+      <div class="agent-card">
+        <h4>Strategy Agent</h4>
+        <p>Receives an archetype (e.g. "mean reversion using RSI") and writes a complete optimizer from scratch. Self-reviews against 20 documented bias patterns before execution. Runs up to 3 rounds — each round narrows parameter ranges around the best results from the previous.</p>
+      </div>
+      <div class="agent-card">
+        <h4>Research Agent</h4>
+        <p>Activated when built-in archetypes are exhausted. Reads every passed strategy, every failure post-mortem, and the aggregated failure statistics. Generates 10 novel strategy ideas that specifically avoid known failure patterns and target gaps in the current portfolio.</p>
+      </div>
+      <div class="agent-card">
+        <h4>Post-Mortem Agent</h4>
+        <p>Analyzes each failed strategy in depth — was the signal logic flawed? Were parameter ranges too narrow? Did the exit rules cause problems? Writes a root cause analysis that feeds directly into the research agent's next round of ideas.</p>
+      </div>
+      <div class="agent-card">
+        <h4>Alignment Agent</h4>
+        <p>Verifies that the live trading engine produces identical results to the optimizer. If there's a mismatch (common due to execution timing), a specialized debugging agent traces and fixes the discrepancy.</p>
       </div>
     </div>
   </div>

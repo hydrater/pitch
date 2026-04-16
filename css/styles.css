@@ -1185,6 +1185,39 @@ body {
 .yearly-bar-value.positive { color: var(--accent-green); }
 .yearly-bar-value.negative { color: var(--accent-red); }
 
+/* ── Agent Cards ──────────────────────────────────────────────── */
+.agent-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.agent-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  border-left: 3px solid var(--accent-cyan);
+  transition: border-color 0.3s;
+}
+
+.agent-card:hover {
+  border-color: var(--accent-cyan);
+}
+
+.agent-card h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  margin-bottom: 8px;
+}
+
+.agent-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
 /* ── Risk Flow ────────────────────────────────────────────────── */
 .risk-flow {
   max-width: 700px;
@@ -1439,6 +1472,7 @@ body {
   .team-grid { grid-template-columns: 1fr; }
   .info-cards { grid-template-columns: repeat(2, 1fr); }
   .pie-row { grid-template-columns: 1fr; }
+  .agent-grid { grid-template-columns: 1fr; }
   .risk-flow-branch { grid-template-columns: 1fr; }
   .risk-flow-or { justify-content: center; padding: 4px 0; }
 

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strategies | Alantrax</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<nav id="main-nav" class="scrolled">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">ALANTRAX</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="team.html">Team</a>
+      <a href="ai.html">AI Research</a>
+      <a href="strategies.html" class="active">Strategies</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <h1 class="page-title">Strategies</h1>
+    <p class="page-desc">Mixed hedge, swing, and momentum strategies with adaptive risk management</p>
+  </div>
+</section>
+
+<!-- Flagship Strategy -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-label">Primary Strategy</h2>
+      <h3 class="section-title">Flagship Strategy</h3>
+      <p class="section-desc">Optimized multi-strategy portfolio with volatility-adaptive hedging</p>
+    </div>
+
+    <div class="chart-wrapper reveal">
+      <div class="chart-meta">
+        <span class="chart-updated" id="hedge-updated-2"></span>
+        <span class="chart-note">Log scale</span>
+      </div>
+      <canvas id="hedge-chart-2"></canvas>
+    </div>
+
+    <div class="metrics-grid metrics-grid-4 reveal" id="flagship-metrics">
+      <div class="metric-card">
+        <div class="metric-value">49.96%</div>
+        <div class="metric-label">CAGR</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">5.86</div>
+        <div class="metric-label">Sharpe</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">-14.56%</div>
+        <div class="metric-label">Max Drawdown</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">62.0%</div>
+        <div class="metric-label">Win Rate</div>
+      </div>
+    </div>
+
+    <div class="pie-row reveal">
+      <div class="pie-block">
+        <h4 class="subsection-title">Asset Class Allocation</h4>
+        <canvas id="pie-assets-flagship"></canvas>
+      </div>
+      <div class="pie-block">
+        <h4 class="subsection-title">Strategy Type Mix</h4>
+        <canvas id="pie-types-flagship"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Low Risk Variant -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-label">Conservative Approach</h2>
+      <h3 class="section-title">Low Risk Variant</h3>
+      <p class="section-desc">Lower volatility variant optimized for capital preservation</p>
+    </div>
+
+    <div class="chart-wrapper reveal">
+      <div class="chart-meta">
+        <span class="chart-updated" id="legacy-updated"></span>
+        <span class="chart-note">Log scale</span>
+      </div>
+      <canvas id="legacy-chart"></canvas>
+    </div>
+
+    <div class="metrics-grid metrics-grid-4 reveal" id="lowrisk-metrics">
+      <div class="metric-card">
+        <div class="metric-value">16.24%</div>
+        <div class="metric-label">CAGR</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">4.76</div>
+        <div class="metric-label">Sharpe</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">-7.46%</div>
+        <div class="metric-label">Max Drawdown</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">62.3%</div>
+        <div class="metric-label">Win Rate</div>
+      </div>
+    </div>
+
+    <div class="pie-row reveal">
+      <div class="pie-block">
+        <h4 class="subsection-title">Asset Class Allocation</h4>
+        <canvas id="pie-assets-lowrisk"></canvas>
+      </div>
+      <div class="pie-block">
+        <h4 class="subsection-title">Strategy Type Mix</h4>
+        <canvas id="pie-types-lowrisk"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Risk Management -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-label">Risk Controls</h2>
+      <h3 class="section-title">Risk Management</h3>
+    </div>
+
+    <div class="risk-explanation reveal">
+      <div class="risk-item">
+        <div class="risk-num">1</div>
+        <div>
+          <h4>Hedge Activation</h4>
+          <p>When portfolio returns deviate from expected returns and hit maximum drawdown thresholds, hedge strategies are activated to protect capital until market conditions stabilize.</p>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-num">2</div>
+        <div>
+          <h4>Volatility Regime Detection</h4>
+          <p>Proprietary regime detection classifies the market into crisis, elevated, and low volatility states. Each regime triggers a different defensive allocation across multiple asset classes.</p>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-num">3</div>
+        <div>
+          <h4>Continuous Iteration</h4>
+          <p>Strategies are continuously updated and re-evaluated. When market conditions shift, the pipeline generates new strategies adapted to the current regime while preserving proven performers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">ALANTRAX</span>
+        <p class="footer-tagline">AI-Driven Quantitative Research</p>
+      </div>
+      <div class="footer-disclaimer">
+        <p>Backtested results. Past performance is not indicative of future results. This is not financial advice or a solicitation to invest.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

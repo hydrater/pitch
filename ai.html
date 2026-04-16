@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Research | Alantrax</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<nav id="main-nav" class="scrolled">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">ALANTRAX</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="team.html">Team</a>
+      <a href="ai.html" class="active">AI Research</a>
+      <a href="strategies.html">Strategies</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <h1 class="page-title">Stacked Ensemble</h1>
+    <p class="page-desc">AI-driven autonomous strategy discovery using regression analysis to identify common market patterns</p>
+  </div>
+</section>
+
+<!-- Pipeline Overview -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-label">Research Pipeline</h2>
+      <h3 class="section-title">How It Works</h3>
+      <p class="section-desc">The system uses regression analysis to find common strategies across different market regimes, then ensembles the best performers into a unified portfolio</p>
+    </div>
+
+    <div class="architecture reveal">
+      <div class="arch-flow">
+        <div class="arch-node arch-agent">
+          <div class="arch-icon">&#x1f916;</div>
+          <h4>LLM Agent</h4>
+          <p>Autonomous code generation from a library of archetype templates covering mean reversion, momentum, volatility, and pattern-based approaches</p>
+        </div>
+        <div class="arch-arrow">&rarr;</div>
+        <div class="arch-node arch-optimize">
+          <div class="arch-icon">&#x2699;</div>
+          <h4>Regression & Optimization</h4>
+          <p>Each strategy is backtested across 30,000+ parameter configurations to find optimal risk-reward profiles while guarding against overfitting</p>
+        </div>
+        <div class="arch-arrow">&rarr;</div>
+        <div class="arch-node arch-gate">
+          <div class="arch-icon">&#x2714;</div>
+          <h4>Quality Gate</h4>
+          <p>Multi-metric statistical filter ensuring strategies demonstrate robust risk-adjusted returns, statistical significance, and sufficient trade frequency</p>
+        </div>
+        <div class="arch-arrow">&rarr;</div>
+        <div class="arch-node arch-ensemble">
+          <div class="arch-icon">&#x1f4ca;</div>
+          <h4>Ensemble</h4>
+          <p>Surviving strategies are combined into a diversified portfolio using correlation-aware weight optimization to maximize risk-adjusted performance</p>
+        </div>
+      </div>
+      <div class="arch-feedback">
+        <div class="arch-feedback-line"></div>
+        <div class="arch-feedback-label">
+          <div class="arch-node arch-graveyard">
+            <div class="arch-icon">&#x26b0;</div>
+            <h4>Post-Mortem Analysis</h4>
+            <p>Failed strategies are systematically analyzed for common bias patterns and failure modes. Insights are fed back to improve the next generation of candidates.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pipeline-stats reveal">
+      <div class="pipeline-stat">
+        <div class="pipeline-stat-value" id="stat-attempted">25</div>
+        <div class="pipeline-stat-label">Tested</div>
+      </div>
+      <div class="pipeline-stat">
+        <div class="pipeline-stat-value" id="stat-passed">14</div>
+        <div class="pipeline-stat-label">Passed</div>
+      </div>
+      <div class="pipeline-stat">
+        <div class="pipeline-stat-value" id="stat-graveyard">11</div>
+        <div class="pipeline-stat-label">Failed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Strategy Examples -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-label">Layer 1 Results</h2>
+      <h3 class="section-title">Example Strategies</h3>
+      <p class="section-desc">Individual strategy performance from our autonomous discovery pipeline</p>
+    </div>
+
+    <div class="strat-table-wrap reveal">
+      <table class="strat-table" id="strategy-table">
+        <thead>
+          <tr>
+            <th data-sort="id">ID</th>
+            <th data-sort="direction">Dir</th>
+            <th data-sort="cagr">CAGR</th>
+            <th data-sort="calmar">Calmar</th>
+            <th data-sort="sharpe">Sharpe</th>
+            <th data-sort="z_score">Z-Score</th>
+            <th data-sort="win_rate">Win%</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Natural Selection -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-label">Evolutionary Process</h2>
+      <h3 class="section-title">Natural Selection</h3>
+      <p class="section-desc">Strategies that fail the quality gate are demoted for post-mortem analysis</p>
+    </div>
+
+    <div class="funnel reveal">
+      <div class="funnel-step funnel-total">
+        <div class="funnel-bar"><div class="funnel-fill" style="width:100%"></div></div>
+        <div class="funnel-info">
+          <span class="funnel-value" id="funnel-total">25</span>
+          <span class="funnel-label">Strategies Attempted</span>
+        </div>
+      </div>
+      <div class="funnel-step funnel-passed">
+        <div class="funnel-bar"><div class="funnel-fill" style="width:56%"></div></div>
+        <div class="funnel-info">
+          <span class="funnel-value" id="funnel-passed">14</span>
+          <span class="funnel-label">Passed</span>
+        </div>
+      </div>
+      <div class="funnel-step funnel-graveyard">
+        <div class="funnel-bar"><div class="funnel-fill" style="width:44%"></div></div>
+        <div class="funnel-info">
+          <span class="funnel-value" id="funnel-graveyard">11</span>
+          <span class="funnel-label">Failed</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="failure-section reveal">
+      <h4 class="subsection-title">Common Failure Modes</h4>
+      <div class="chart-wrapper chart-wrapper-sm">
+        <canvas id="failure-chart"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">ALANTRAX</span>
+        <p class="footer-tagline">AI-Driven Quantitative Research</p>
+      </div>
+      <div class="footer-disclaimer">
+        <p>Backtested results. Past performance is not indicative of future results. This is not financial advice or a solicitation to invest.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

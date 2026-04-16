@@ -87,7 +87,7 @@
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        layout: { padding: { left: 8, right: 12, top: 8, bottom: 8 } },
+        layout: { padding: { left: 8, right: 20, top: 8, bottom: 8 } },
         interaction: { intersect: false, mode: 'index' },
         scales: {
           x: {
@@ -124,7 +124,14 @@
           },
           legend: {
             position: 'top',
-            align: 'end',
+            align: 'center',
+            labels: {
+              padding: 24,
+              usePointStyle: true,
+              pointStyle: 'line',
+              font: { size: 12, weight: '500' },
+              boxWidth: 30,
+            },
           },
         },
       },

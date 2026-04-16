@@ -174,28 +174,29 @@
     <div class="section-header">
       <h2 class="section-label">Risk Controls</h2>
       <h3 class="section-title">Risk Management</h3>
+      <p class="section-desc">What happens when a strategy hits its maximum drawdown</p>
     </div>
 
-    <div class="risk-explanation reveal">
-      <div class="risk-item">
-        <div class="risk-num">1</div>
-        <div>
-          <h4>Drawdown Trigger</h4>
-          <p>When a strategy hits its maximum drawdown threshold, it flags for review. Researchers evaluate whether the underlying market regime has shifted and why the strategy is underperforming.</p>
-        </div>
+    <div class="risk-flow reveal">
+      <div class="risk-flow-trigger">
+        <div class="risk-flow-icon risk-flow-icon-red">&#x26A0;</div>
+        <h4>Strategy hits max drawdown</h4>
+        <p>Flagged for review. Researchers evaluate whether the market regime has shifted and why the strategy is underperforming.</p>
       </div>
-      <div class="risk-item">
-        <div class="risk-num">2</div>
-        <div>
-          <h4>Diagnose & Adapt</h4>
-          <p>If the current regime is expected to continue, the strategy is updated with new indicators suited to the changed conditions. The AI pipeline accelerates this by generating and testing adapted candidates.</p>
+
+      <div class="risk-flow-arrow">&darr;</div>
+
+      <div class="risk-flow-branch">
+        <div class="risk-flow-path risk-flow-path-green">
+          <div class="risk-flow-icon risk-flow-icon-green">&#x2699;</div>
+          <h4>Regime identified</h4>
+          <p>Strategy is updated with new indicators suited to the current conditions. The AI pipeline generates and tests adapted candidates to accelerate recovery.</p>
         </div>
-      </div>
-      <div class="risk-item">
-        <div class="risk-num">3</div>
-        <div>
-          <h4>Failsafe: Low Risk Swap</h4>
-          <p>If the regime outlook is uncertain, we swap to our low risk strategies to preserve capital while researchers work on the next iteration. Capital protection takes priority over returns during ambiguous periods.</p>
+        <div class="risk-flow-or">or</div>
+        <div class="risk-flow-path risk-flow-path-blue">
+          <div class="risk-flow-icon risk-flow-icon-blue">&#x1F6E1;</div>
+          <h4>Regime uncertain</h4>
+          <p>Capital is moved to low risk strategies while researchers work on the next iteration. Protection takes priority until the outlook is clear.</p>
         </div>
       </div>
     </div>

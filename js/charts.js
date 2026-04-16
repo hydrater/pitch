@@ -298,9 +298,9 @@
   }
 
   // ── Monthly Returns Heatmap ────────────────────────────────────
-  function renderHeatmap() {
-    var data = D.monthly_returns;
-    var table = document.getElementById('monthly-heatmap');
+  function renderHeatmap(tableId, dataKey) {
+    var data = D[dataKey];
+    var table = document.getElementById(tableId);
     if (!table || !data) return;
 
     var html = '<thead><tr><th></th>';
@@ -334,6 +334,74 @@
     table.innerHTML = html;
   }
 
+  // ── Drawdown Chart ─────────────────────────────────────────────
+  function renderDrawdown(canvasId, dataKey) {
+    var data = D[dataKey];
+    var ctx = document.getElementById(canvasId);
+    if (!ctx || !data) return;
+
+    var gradient = ctx.getContext('2d').createLinearGradient(0, 0, 0, 280);
+    gradient.addColorStop(0, 'rgba(248,81,73,0.0)');
+    gradient.addColorStop(1, 'rgba(248,81,73,0.15)');
+
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: data.dates,
+        datasets: [{
+          data: data.drawdown,
+          borderColor: '#f85149',
+          borderWidth: 1.5,
+          backgroundColor: gradient,
+          fill: true,
+          pointRadius: 0,
+          pointHitRadius: 8,
+          tension: 0.1,
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        layout: { padding: { left: 4, right: 8, top: 4, bottom: 4 } },
+        interaction: { intersect: false, mode: 'index' },
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { display: false }, ticks: { maxTicksLimit: 8, font: { size: 10 }, maxRotation: 0 } },
+          y: {
+            grid: { color: 'rgba(42,53,80,0.3)' },
+            afterFit: function (axis) { axis.width = 55; },
+            ticks: { callback: function (v) { return v.toFixed(0) + '%'; }, font: { size: 10 } },
+          },
+        },
+      },
+    });
+  }
+
+  // ── Yearly Returns Bars ────────────────────────────────────────
+  function renderYearlyBars(containerId, dataKey) {
+    var data = D[dataKey];
+    var container = document.getElementById(containerId);
+    if (!container || !data) return;
+
+    var maxAbs = Math.max.apply(null, data.yearly_returns.filter(function (v) { return v !== null; }).map(function (v) { return Math.abs(v); }));
+    var html = '';
+    data.years.forEach(function (year, i) {
+      var val = data.yearly_returns[i];
+      if (val === null) return;
+      var pct = (Math.abs(val) / maxAbs) * 100;
+      var cls = val >= 0 ? 'positive' : 'negative';
+      html += '<div class="yearly-bar">'
+        + '<span class="yearly-bar-year">' + year + '</span>'
+        + '<div class="yearly-bar-track">'
+        + '<div class="yearly-bar-fill ' + cls + '" style="width:' + pct + '%"></div>'
+        + '</div>'
+        + '<span class="yearly-bar-value ' + cls + '">'
+        + (val >= 0 ? '+' : '') + val.toFixed(1) + '%</span>'
+        + '</div>';
+    });
+    container.innerHTML = html;
+  }
+
   function renderPieCharts() {
     var pie = D.pie;
     if (!pie) return;
@@ -352,11 +420,16 @@
     setDefaults();
     // index.html
     renderComparisonChart('hedge-chart', 'hedge-updated', 'hedge');
-    renderHeatmap();
     // strategies.html
     renderComparisonChart('hedge-chart-2', 'hedge-updated-2', 'hedge');
     renderComparisonChart('legacy-chart', 'legacy-updated', 'legacy');
     renderPieCharts();
+    renderDrawdown('dd-flagship', 'hedge_drawdowns');
+    renderDrawdown('dd-lowrisk', 'legacy_drawdowns');
+    renderHeatmap('heatmap-flagship', 'hedge_monthly');
+    renderHeatmap('heatmap-lowrisk', 'legacy_monthly');
+    renderYearlyBars('yearly-flagship', 'hedge_monthly');
+    renderYearlyBars('yearly-lowrisk', 'legacy_monthly');
     // ai.html
     renderQualityGate();
     renderStrategyTable();

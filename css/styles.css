@@ -1126,6 +1126,65 @@ body {
   line-height: 1.6;
 }
 
+/* ── Risk Profile ─────────────────────────────────────────────── */
+.risk-profile {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.heatmap-section,
+.yearly-section {
+  margin-top: 0;
+}
+
+.yearly-returns {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.yearly-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.yearly-bar-year {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  min-width: 40px;
+}
+
+.yearly-bar-track {
+  flex: 1;
+  height: 24px;
+  background: rgba(42,53,80,0.4);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.yearly-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  min-width: 2px;
+}
+
+.yearly-bar-fill.positive { background: var(--accent-green); }
+.yearly-bar-fill.negative { background: var(--accent-red); }
+
+.yearly-bar-value {
+  font-size: 0.8rem;
+  font-weight: 600;
+  min-width: 60px;
+  text-align: right;
+}
+
+.yearly-bar-value.positive { color: var(--accent-green); }
+.yearly-bar-value.negative { color: var(--accent-red); }
+
 /* ── Pie Chart Row ────────────────────────────────────────────── */
 .pie-row {
   display: grid;

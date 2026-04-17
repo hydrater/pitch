@@ -1837,7 +1837,9 @@ body {
 
   .metrics-grid { grid-template-columns: repeat(2, 1fr); }
   .regime-grid { grid-template-columns: 1fr; }
-  .hero-stats { flex-direction: column; gap: 16px; padding: 20px 24px; }
+  .hero-content { display: flex; flex-direction: column; align-items: center; }
+  .hero-stats { flex-direction: column; gap: 16px; padding: 20px 24px; order: 4; }
+  .hero-cta { order: 5; }
   .hero-stat-divider { width: 40px; height: 1px; }
   .pipeline-stats { flex-wrap: wrap; gap: 24px; }
   .arch-flow { flex-direction: column; align-items: center; }

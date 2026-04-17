@@ -197,14 +197,16 @@ body {
 }
 
 .hero-stats {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 32px;
   padding: 20px 36px;
   background: rgba(26,34,53,0.6);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  margin-bottom: 48px;
+  margin: 0 auto 48px;
+  width: fit-content;
 }
 
 .hero-stat-value {
@@ -230,8 +232,9 @@ body {
 }
 
 .hero-cta {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   color: var(--accent-cyan);
   text-decoration: none;
